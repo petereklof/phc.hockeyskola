@@ -1,0 +1,59 @@
+/********
+  CSS Custom Properties for Colors
+*********/
+
+// Light mode
+:root {
+  // Greyscale
+  --grey-900: #18171c;
+  --grey-800: #35343a;
+  --grey-700: #565656;
+  --grey-600: #9b9b9b;
+  --grey-500: #d5d5d5;
+  --grey-400: #e7e7e7;
+  --grey-300: #f4f4f4;
+  --grey-200: #f8f8f8;
+  --grey-100: #fff;
+
+  // Primary color
+  --red-dark: #b61711;
+  --red: #e2231a; //Primary color for the brand
+  --red-light: #f6372e;
+  --red-lighter: #ff655d;
+  --red-lightest: #fff5f5;
+
+  // Secondary colors
+  --blue-dark: #0b3866;
+  --blue: #0b4d93;
+  --blue-light: #1d6098;
+  --blue-lighter: #1c91d0;
+  --blue-lightest: #f3f8ff;
+
+  // Utility colors
+  --orange: #f69321;
+  --green: #0e8d44;
+  --green-aa-contrast: #0c7a3a;
+  --green-aa-contrast-hover: #095f2e;
+  --yellow: #ffcb52;
+
+  // Gradients
+  --gradient-red: linear-gradient(90deg, #d20027 0%, #e2231a 100%);
+  --gradient-blue: linear-gradient(90deg, #007cb5 0%, #0b4d93 100%);
+}
+
+// Dark mode
+.dark {
+  --grey-900: #fff;
+  --grey-800: #f8f8f8;
+  --grey-700: #f4f4f4;
+  --grey-600: #e7e7e7;
+  --grey-500: #d5d5d5;
+  --grey-400: #9b9b9b;
+  --grey-300: #565656;
+  --grey-200: #222123;
+  --grey-100: #18171c;
+
+  // Dark specific colors
+  --dark-mode-blue-link: #7c9fc8;
+  --dark-mode-grey-250: #292929;
+}
