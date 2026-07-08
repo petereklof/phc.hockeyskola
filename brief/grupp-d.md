@@ -24,6 +24,7 @@
 | 13:30 | Aktivitet |
 | 14:45 | Fysträning |
 | 16:15 – 17:25 | Isträning |
+| 19:05 – 20:30 | Målvaktsträning (alla deltagande målvakter) |
 
 ## Onsdag 5/8
 
@@ -34,7 +35,6 @@
 | 11:00 | Lunch |
 | 12:00 – 13:00 | Föreläsning |
 | 14:50 – 16:00 | Isträning |
-| 19:05 – 20:30 | Målvaktsträning (alla deltagande målvakter) |
 
 ## Torsdag 6/8
 

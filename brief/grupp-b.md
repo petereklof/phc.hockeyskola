@@ -26,6 +26,7 @@
 | 11:30 | Aktivitet |
 | 12:15 – 12:50 | Teori |
 | 13:25 – 14:35 | Isträning |
+| 19:05 – 20:30 | Målvaktsträning (alla deltagande målvakter) |
 
 ## Onsdag 5/8
 
@@ -37,7 +38,6 @@
 | 15:00 – 16:00 | Teori |
 | 16:10 – 17:00 | Fys/Skytte |
 | 17:40 – 18:50 | Isträning |
-| 19:05 – 20:30 | Målvaktsträning (alla deltagande målvakter) |
 
 ## Torsdag 6/8
 

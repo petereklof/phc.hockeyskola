@@ -1,6 +1,6 @@
 # Schema Data Model – Piteå Hockeys Sommarhockeyskola 2026
 
-> This document defines the JSON data structure for schedules, locations, contacts, and events, based on `content-spec.md`. Structural/explanatory text is in English; actual field values shown in the app are in Swedish.
+> This document defines the JSON data structure for schedules, locations, contacts, and events, based on `content.md`. Structural/explanatory text is in English; actual field values shown in the app are in Swedish.
 
 ---
 
@@ -21,6 +21,7 @@ content/
   2026/
     locations.json      # shared location lookup
     contacts-shared.json # people relevant across all groups (kitchen, goalie coach, director)
+    menu.json           # shared lunch menu, keyed by ISO date (same for all groups)
     groups/
       grupp-a.json
       grupp-b.json
@@ -60,7 +61,7 @@ Keeping one JSON file per group (rather than one giant file) makes it easier to 
 }
 ```
 
-*Open item: real addresses/coordinates needed to finalize `mapsUrl` values — currently placeholder query-based links.*
+**TODO (client): real addresses/coordinates needed to finalize `mapsUrl` values — currently placeholder query-based links.** Keep the query-based links working in the meantime so "hitta hit" is never broken. Mark each placeholder with `"tba": true` on the location so the validation step can list what still needs real coordinates.
 
 ---
 
@@ -94,7 +95,30 @@ Group files reference these by key (`"kitchen"`, `"goalieCoach"`, `"director"`) 
 
 ---
 
-## 5. Group file — `groups/grupp-a.json`
+## 5. `menu.json`
+
+The lunch menu is the same for all groups on a given day, so it's a shared lookup keyed by ISO date rather than repeated inside each group's lunch event (same normalization principle as locations/contacts, §1).
+
+```json
+{
+  "note": "Samtliga rätter är gluten- och laktosfria samt fria från ägg och nötter.",
+  "byDate": {
+    "2026-08-03": "Pannbiff m. klyftpotatis",
+    "2026-08-04": "Kycklinggryta m. ris",
+    "2026-08-05": "Köttfärssås m. spaghetti",
+    "2026-08-06": "Kebabgryta m. ris",
+    "2026-08-07": "Köttbullar m. makaroner"
+  }
+}
+```
+
+- The Lunch modal looks up the dish via the day's `date` — the lunch event needs **no `menu` field of its own**; drop it in favor of this lookup.
+- `note` (allergi-informationen) is shown once per lunch modal, not per dish.
+- `2026-08-08` (lördag, avslutning) is intentionally absent → render "Information kommer" if a lunch is served that day.
+
+---
+
+## 6. Group file — `groups/grupp-a.json`
 
 ```json
 {
@@ -172,9 +196,7 @@ Group files reference these by key (`"kitchen"`, `"goalieCoach"`, `"director"`) 
           "timeEnd": null,
           "modalContent": {
             "locationId": "christinaskolan",
-            "contactRef": "kitchen",
-            "menu": null,
-            "tba": ["menu"]
+            "contactRef": "kitchen"
           }
         },
         {
@@ -233,7 +255,7 @@ The cross-group nature is communicated purely through the `info` copy — no ext
 
 ---
 
-## 6. TypeScript types (for validation / editor autocomplete)
+## 7. TypeScript types (for validation / editor autocomplete)
 
 ```typescript
 type EventCategory = "training" | "other";
@@ -299,9 +321,14 @@ Consider validating these with `zod` at build/import time so a malformed group J
 
 ---
 
-## 7. Open items before content is locked
+## 8. Open items before content is locked
 
-Same as in `content-spec.md` §4 — menu text, theory/lecture topics, activity descriptions, instructor names, and confirmation of Group D's contact structure — plus, newly:
+See `content.md` §4 for the live list. Still open here on the data side:
 
-1. Real coordinates/addresses for `locations.json` `mapsUrl` values.
-2. Confirm whether `category` should ever need a third value (e.g. if "Matchspel" should count as `training` rather than `other`) — currently modeled per your instruction as: **training** = ice/fitness/theory, **everything else** = other.
+1. **TODO (client): real coordinates/addresses** for `locations.json` `mapsUrl` values (placeholder query links until then).
+2. **TODO (client): real instructor/assistant/fadder names + phones** — placeholder `Exempel Exempelsson` / `070-123 45 56` with `tba: true` until then (see `content.md` §2.4).
+3. Theory/lecture topics and activity descriptions per day.
+4. Confirmation of Group D's contact structure.
+5. Confirm whether `category` should ever need a third value (e.g. if "Matchspel" should count as `training` rather than `other`) — currently: **training** = ice/fitness/theory, **everything else** = other.
+
+**Resolved:** lunch menu (now in `menu.json`, §5); "Samling" never clickable; Maps = external links, no embed.
