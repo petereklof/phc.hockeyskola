@@ -1,0 +1,119 @@
+@use "sass:color";
+@use "tokens" as *;
+
+.day {
+  margin: 0 0 22px;
+}
+
+.dayHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 0 10px;
+  padding: 0 4px;
+}
+
+.weekday {
+  @include heading;
+  margin: 0;
+  font-size: 17px;
+}
+
+.date {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: $color-muted;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 14px;
+  text-align: left;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 12px;
+  background: $color-box;
+  color: $color-text;
+  font-family: $font-body;
+}
+
+// Two-color event system: category drives the accent, defined once in tokens.
+.training {
+  border-left-color: var(--color-training);
+  background: color.mix($color-red, $color-box, 10%); // tint of brand red, no new hue
+}
+
+.other {
+  border-left-color: $color-faint;
+}
+
+button.row {
+  cursor: pointer;
+  transition: background 0.25s ease;
+
+  &:hover {
+    background: color.mix($color-red, $color-box, 18%);
+  }
+
+  &.other:hover {
+    background: color.mix($color-text, $color-box, 6%);
+  }
+}
+
+// Non-clickable rows read as intentionally static: muted, no hover, no chevron.
+.static {
+  .title,
+  .time {
+    color: $color-muted;
+  }
+}
+
+.time {
+  flex-shrink: 0;
+  min-width: 82px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.location {
+  font-size: 11px;
+  color: $color-muted;
+}
+
+.chevron {
+  margin-left: auto;
+  color: $color-red;
+  font-size: 14px;
+}
+
+@include reduced-motion {
+  button.row {
+    transition: none;
+  }
+}

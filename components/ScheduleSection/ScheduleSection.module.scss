@@ -1,0 +1,12 @@
+@use "tokens" as *;
+
+.schedule {
+  padding: 24px 18px 8px;
+}
+
+.heading {
+  @include heading;
+  margin: 0 0 14px;
+  padding: 0 4px;
+  font-size: 22px;
+}

@@ -1,0 +1,54 @@
+@use "tokens" as *;
+
+.header {
+  position: relative;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0 0 52px; // stops above the plain meta strip
+  background: url("/decoration/pattern.svg") center 30% / cover no-repeat;
+}
+
+.patternContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 172px;
+  padding: 20px 18px 14px;
+}
+
+.eyebrow {
+  @include heading;
+  @include heading-stroke($color-text);
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.title {
+  @include heading;
+  @include heading-stroke($color-red);
+  margin: 0;
+  font-size: 52px;
+  letter-spacing: -0.01em;
+}
+
+.meta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: $color-bg;
+  border-bottom: 1px solid $color-faint;
+}
+
+.dates {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: $color-muted;
+}

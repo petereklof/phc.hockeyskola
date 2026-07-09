@@ -1,0 +1,121 @@
+@use "tokens" as *;
+
+.dialog {
+  width: min(92vw, 360px);
+  margin: auto;
+  padding: 0;
+  background: $color-box;
+  border: 1px solid $color-faint;
+  border-radius: $radius-lg;
+  color: $color-text;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+  }
+}
+
+.inner {
+  padding: 20px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.title {
+  @include heading;
+  margin: 0;
+  font-size: 24px;
+}
+
+.close {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid $color-faint;
+  border-radius: 999px;
+  cursor: pointer;
+  color: $color-muted;
+
+  &:hover {
+    border-color: $color-red;
+    color: $color-text;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.label {
+  @include eyebrow;
+  font-size: 9.5px;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.tba {
+  font-weight: 400;
+  font-style: italic;
+  color: $color-muted;
+}
+
+.note {
+  font-size: 11px;
+  font-weight: 400;
+  color: $color-muted;
+}
+
+.maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  background: $color-red;
+  border-radius: $radius-sm;
+  color: $color-text;
+
+  i {
+    font-style: normal;
+  }
+
+  &:hover {
+    background: $color-red-hover;
+  }
+}
+
+.phone {
+  font-weight: 400;
+  color: $color-text;
+  text-decoration-color: $color-red;
+}

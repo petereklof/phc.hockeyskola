@@ -1,0 +1,19 @@
+{
+  "kitchen": {
+    "role": "Mat/Köksansvarig",
+    "name": "Tommy Forsberg",
+    "phone": "070-322 62 23"
+  },
+  "goalieCoach": {
+    "role": "Målvaktsansvarig",
+    "name": "Peter Eklöf",
+    "phone": "070-28 25 369",
+    "email": "mail@petereklof.se"
+  },
+  "director": {
+    "role": "Huvudansvarig för hockeyskolan",
+    "name": "Niclas Juhlin",
+    "phone": "070-669 50 98",
+    "email": "niclas.juhlin@ivab.com"
+  }
+}

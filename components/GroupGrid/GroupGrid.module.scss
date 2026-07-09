@@ -1,0 +1,18 @@
+@use "tokens" as *;
+
+.groups {
+  padding: 28px 18px 8px;
+}
+
+.heading {
+  @include heading;
+  margin: 0 0 16px;
+  padding: 0 4px;
+  font-size: 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}

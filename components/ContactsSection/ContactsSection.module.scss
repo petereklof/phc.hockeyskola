@@ -1,0 +1,53 @@
+@use "tokens" as *;
+
+.contacts {
+  padding: 24px 18px 8px;
+}
+
+.heading {
+  @include heading;
+  margin: 0 0 14px;
+  padding: 0 4px;
+  font-size: 22px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 13px 16px;
+  background: $color-box;
+  border-radius: 12px;
+}
+
+.role {
+  @include eyebrow;
+  font-size: 9.5px;
+  margin: 0 0 3px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tba {
+  font-weight: 400;
+  color: $color-muted;
+}
+
+.link {
+  align-self: flex-start;
+  font-size: 12px;
+  color: $color-text;
+  text-decoration-color: $color-red;
+}

@@ -1,0 +1,80 @@
+@use "tokens" as *;
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: max(560px, 65svh);
+  padding: 26px 24px 34px;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: -12% 0;
+  background: url("/decoration/pattern.svg") center top / cover no-repeat;
+  will-change: transform;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mid {
+  margin-top: auto;
+}
+
+.logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 130px;
+  height: 130px;
+  margin: 0 0 0 -4px;
+  opacity: 0;
+  will-change: transform;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.title {
+  @include heading;
+  position: relative;
+  z-index: 2;
+  margin: -30px 0 0; // overlaps only the bottom of the logo
+  font-size: clamp(48px, 17vw, 66px);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+.line {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.stroked {
+  @include heading-stroke($color-text);
+}
+
+.strokedRed {
+  @include heading-stroke($color-red);
+}
+
+@include reduced-motion {
+  .logo,
+  .line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .bg {
+    transform: none !important;
+  }
+}

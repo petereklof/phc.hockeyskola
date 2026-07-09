@@ -1,0 +1,86 @@
+@use "tokens" as *;
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 16px 22px; // content decides the height
+  overflow: hidden;
+  background: $color-box;
+  border-radius: $radius-lg;
+  color: $color-text;
+
+  // Initial state for the scroll-triggered stagger (GroupGrid animates to
+  // visible). Overridden under prefers-reduced-motion.
+  opacity: 0;
+  transform: translateY(26px) scale(0.97);
+}
+
+.grp {
+  @include heading;
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.letter {
+  font-family: $font-heading;
+  font-size: 88px;
+  line-height: 1;
+  color: $color-text;
+}
+
+.age {
+  margin: 6px 0 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $color-muted;
+}
+
+// The only clickable element in the card.
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 9px 15px;
+  background: $color-red;
+  border-radius: $radius-sm;
+  color: $color-text;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+
+  i {
+    font-style: normal;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: $color-red-hover;
+    transform: translateY(-2px);
+
+    i {
+      transform: translateX(3px);
+    }
+  }
+}
+
+@include reduced-motion {
+  .tile {
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn,
+  .btn i {
+    transition: none;
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "d",
+  "ageGroup": "2017",
+  "name": "Grupp D",
+  "dateRangeLabel": "Måndag 3 aug – lördag 8 aug 2026",
+  "lockerRoom": {
+    "number": "5",
+    "building": "Isstadion"
+  },
+  "practicalInfo": {
+    "lunchLocationId": "christinaskolan",
+    "theoryLocationId": "lf-arena",
+    "fitnessLocationIds": ["lf-arena", "grisberget"]
+  },
+  "testIceNotice": {
+    "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Detta sker i friåkningsform och är förbehållet hockeyskolans elever. Info om dag och tid kommer.",
+    "tba": true
+  },
+  "contacts": [
+    { "role": "Instruktör", "name": "Exempel Exempelsson", "phone": "070-123 45 56", "tba": true },
+    { "role": "Faddrar", "name": "Exempel Exempelsson", "phone": "070-123 45 56", "tba": true },
+    { "ref": "kitchen" },
+    { "ref": "goalieCoach" },
+    { "ref": "director" }
+  ],
+  "schedule": [
+    {
+      "date": "2026-08-03",
+      "weekday": "Måndag",
+      "events": [
+        { "id": "d-mon-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "10:45", "timeEnd": null, "modalContent": null },
+        { "id": "d-mon-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "12:00", "timeEnd": "13:10", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-mon-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "14:00", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
+        { "id": "d-mon-teori", "type": "teori", "category": "training", "title": "Teori", "timeStart": "14:30", "timeEnd": "15:20", "modalContent": { "locationId": "lf-arena", "topic": null, "tba": ["topic"] } },
+        { "id": "d-mon-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "15:30", "timeEnd": "16:30", "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
+        { "id": "d-mon-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "17:40", "timeEnd": "18:50", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } }
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "weekday": "Tisdag",
+      "events": [
+        { "id": "d-tue-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "09:30", "timeEnd": null, "modalContent": null },
+        { "id": "d-tue-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "10:35", "timeEnd": "11:45", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-tue-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "12:30", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
+        { "id": "d-tue-aktivitet", "type": "aktivitet", "category": "other", "title": "Aktivitet", "timeStart": "13:30", "timeEnd": null, "modalContent": { "description": null, "tba": ["description"] } },
+        { "id": "d-tue-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "14:45", "timeEnd": null, "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
+        { "id": "d-tue-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "16:15", "timeEnd": "17:25", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-tue-malvakt", "type": "malvaktstraning", "category": "other", "title": "Målvaktsträning", "timeStart": "19:05", "timeEnd": "20:30", "modalContent": { "locationId": "isstadion", "info": "Gäller alla deltagande målvakter, samtliga grupper.", "contactRef": "goalieCoach" } }
+      ]
+    },
+    {
+      "date": "2026-08-05",
+      "weekday": "Onsdag",
+      "events": [
+        { "id": "d-wed-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "08:15", "timeEnd": null, "modalContent": null },
+        { "id": "d-wed-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "09:10", "timeEnd": "10:20", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-wed-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "11:00", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
+        { "id": "d-wed-forelasning", "type": "forelasning", "category": "other", "title": "Föreläsning", "timeStart": "12:00", "timeEnd": "13:00", "modalContent": { "locationId": "lf-arena", "topic": null, "speaker": null, "tba": ["topic", "speaker"] } },
+        { "id": "d-wed-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "14:50", "timeEnd": "16:00", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } }
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "weekday": "Torsdag",
+      "events": [
+        { "id": "d-thu-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "07:00", "timeEnd": null, "modalContent": null },
+        { "id": "d-thu-istraning", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "07:45", "timeEnd": "08:55", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-thu-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "09:30", "timeEnd": null, "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
+        { "id": "d-thu-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "10:45", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
+        { "id": "d-thu-teori", "type": "teori", "category": "training", "title": "Teori", "timeStart": "11:30", "timeEnd": null, "modalContent": { "locationId": "lf-arena", "topic": null, "tba": ["topic"] } },
+        { "id": "d-thu-matchspel", "type": "matchspel", "category": "other", "title": "Matchspel", "timeStart": "13:25", "timeEnd": "14:35", "modalContent": { "locationId": "isstadion", "info": null, "tba": ["info"] } }
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "weekday": "Fredag",
+      "events": [
+        { "id": "d-fri-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "11:15", "timeEnd": null, "modalContent": null },
+        { "id": "d-fri-istraning", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "12:10", "timeEnd": "13:10", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
+        { "id": "d-fri-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "14:00", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
+        { "id": "d-fri-aktivitet", "type": "aktivitet", "category": "other", "title": "Aktivitet", "timeStart": "14:30", "timeEnd": "16:45", "modalContent": { "description": null, "tba": ["description"] } },
+        { "id": "d-fri-matchspel", "type": "matchspel", "category": "other", "title": "Matchspel", "timeStart": "17:40", "timeEnd": "18:50", "modalContent": { "locationId": "isstadion", "info": null, "tba": ["info"] } }
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "weekday": "Lördag",
+      "events": [
+        { "id": "d-sat-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "12:15", "timeEnd": null, "modalContent": null },
+        { "id": "d-sat-matchspel", "type": "matchspel", "category": "other", "title": "Matchspel", "timeStart": "13:15", "timeEnd": "14:15", "modalContent": { "locationId": "isstadion", "info": null, "tba": ["info"] } },
+        { "id": "d-sat-fika", "type": "fika", "category": "other", "title": "Fika/avslut", "timeStart": "14:45", "timeEnd": null, "modalContent": { "locationId": null, "info": null, "tba": ["locationId", "info"] } }
+      ]
+    }
+  ]
+}

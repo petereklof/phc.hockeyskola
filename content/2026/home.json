@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "titleLine1": "Hockeyskola",
+    "titleLine2": "2026"
+  },
+  "marquee": {
+    "facts": ["3–8 Augusti 2026", "LF Arena", "Piteå"],
+    "tagline": "Nästa roliga säsong börjar redan nu!"
+  },
+  "saveAsApp": {
+    "intro": "Lägg till sajten på hemskärmen för snabb åtkomst under veckan."
+  },
+  "notices": {
+    "testIce": {
+      "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Info om dag och tid kommer.",
+      "tba": true
+    },
+    "goalieTraining": {
+      "text": "Målvaktsträning för alla deltagande målvakter: tisdag 4 augusti kl 19:05–20:30. Se din grupps schema."
+    }
+  }
+}

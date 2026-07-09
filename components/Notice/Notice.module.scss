@@ -1,0 +1,24 @@
+@use "sass:color";
+@use "tokens" as *;
+
+.notice {
+  margin: 20px 18px 0;
+  padding: 14px 16px;
+  background: color.mix($color-red, $color-box, 10%);
+  border-left: 3px solid $color-red;
+  border-radius: 12px;
+}
+
+.heading {
+  @include heading;
+  display: block;
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $color-muted;
+}

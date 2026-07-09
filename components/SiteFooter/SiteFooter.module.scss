@@ -1,0 +1,21 @@
+@use "tokens" as *;
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 24px 46px;
+  text-align: center;
+}
+
+.title {
+  @include heading;
+  font-size: 15px;
+}
+
+.subtitle {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: $color-muted;
+}

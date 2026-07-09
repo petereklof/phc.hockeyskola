@@ -35,7 +35,10 @@ $radius-sm: 9px; // buttons
 $radius-xs: 7px; // step-number badges
 
 // --- Layout ------------------------------------------------------------------
-$content-max: 560px; // content column on larger screens (mobile-first app)
+// Mobile-only app: ALL content lives in a centered column of this width
+// (matches the approved mockup's phone frame). The page background flows out
+// on either side on wider screens; the column gets hairline borders there.
+$content-max: 412px;
 
 // --- Mixins ------------------------------------------------------------------
 

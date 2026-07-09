@@ -1,0 +1,99 @@
+@use "tokens" as *;
+
+.app {
+  margin: 28px 18px;
+  padding: 22px;
+  background: $color-box;
+  border-radius: $radius-lg;
+}
+
+.heading {
+  @include heading;
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.intro {
+  margin: 0 0 16px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $color-muted;
+}
+
+.toggle {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.pill {
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1px solid $color-faint;
+  border-radius: 999px;
+  color: $color-muted;
+  cursor: pointer;
+  transition: 0.25s;
+
+  &[aria-selected="true"] {
+    background: $color-red;
+    border-color: $color-red;
+    color: $color-text;
+  }
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: s;
+
+  &[hidden] {
+    display: none;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    counter-increment: s;
+
+    &::before {
+      content: counter(s);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: $color-red;
+      border-radius: $radius-xs;
+      color: $color-text;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  b {
+    font-weight: 700;
+  }
+}
+
+// Each step's text lives in ONE element so inline <b> never becomes its own
+// flex column.
+.stepText {
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+@include reduced-motion {
+  .pill {
+    transition: none;
+  }
+}

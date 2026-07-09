@@ -1,0 +1,14 @@
+@use "tokens" as *;
+
+// The app shell: a centered phone-width column that all content lives in.
+.shell {
+  max-width: $content-max;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: $color-bg;
+
+  // Wider than the column → show the frame borders.
+  @media (min-width: #{$content-max + 1px}) {
+    border-inline: 1px solid $color-faint;
+  }
+}

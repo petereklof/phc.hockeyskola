@@ -1,0 +1,26 @@
+{
+  "isstadion": {
+    "name": "Isstadion",
+    "address": "Isstadion, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=Isstadion+Pite%C3%A5",
+    "tba": true
+  },
+  "lf-arena": {
+    "name": "LF Arena",
+    "address": "LF Arena, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=LF+Arena+Pite%C3%A5",
+    "tba": true
+  },
+  "grisberget": {
+    "name": "Grisberget",
+    "address": "Grisberget, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=Grisberget+Pite%C3%A5",
+    "tba": true
+  },
+  "christinaskolan": {
+    "name": "Christinaskolans matsal",
+    "address": "Christinaskolan, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=Christinaskolan+Pite%C3%A5",
+    "tba": true
+  }
+}
