@@ -1,4 +1,12 @@
-// Minimal global reset — design tokens live in styles/_tokens.scss (step 2).
+@use "tokens" as *;
+
+:root {
+  // Two-color event system (tech-stack.md §3) — defined once, used everywhere
+  // schedule items are styled.
+  --color-training: #{$color-training};
+  --color-other: #{$color-other};
+}
+
 *,
 *::before,
 *::after {
@@ -11,9 +19,30 @@ body {
   padding: 0;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
-  background: #211e1e;
-  color: #ffffff;
-  font-family: var(--font-body), ui-monospace, monospace;
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: 13px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid $color-red;
+  outline-offset: 2px;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
 }
