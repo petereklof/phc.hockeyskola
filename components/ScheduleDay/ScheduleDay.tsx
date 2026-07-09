@@ -8,6 +8,7 @@ import styles from "./ScheduleDay.module.scss";
 interface ScheduleDayProps {
   day: DaySchedule;
   locations: Record<string, Location>;
+  isActive: boolean;
   onSelect: (event: ScheduleEvent) => void;
 }
 
@@ -20,23 +21,23 @@ function timeLabel(event: ScheduleEvent): string {
   return event.timeEnd ? `${event.timeStart}–${event.timeEnd}` : event.timeStart;
 }
 
-export default function ScheduleDay({ day, locations, onSelect }: ScheduleDayProps) {
+export default function ScheduleDay({ day, locations, isActive, onSelect }: ScheduleDayProps) {
   const root = useRef<HTMLElement>(null);
 
-  // Light stagger-in as the day's list scrolls into view. gsap.from (not a
-  // CSS-hidden initial state) so the schedule stays readable without JS.
+  // Light stagger-in ONCE, for the day visible on page load. Re-running it on
+  // every swipe made the sideways navigation feel flickery, so day changes
+  // show their rows instantly. gsap.fromTo (not a CSS-hidden initial state)
+  // keeps the schedule readable without JS.
   useGSAP(
     () => {
+      if (!isActive) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      gsap.from(`.${styles.row}`, {
-        opacity: 0,
-        y: 14,
-        duration: 0.35,
-        ease: "power2.out",
-        stagger: 0.04,
-        scrollTrigger: { trigger: root.current, start: "top 85%", once: true },
-      });
+      gsap.fromTo(
+        `.${styles.row}`,
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.04 },
+      );
     },
     { scope: root },
   );

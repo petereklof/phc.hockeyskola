@@ -48,7 +48,11 @@ export default async function GroupPage({ params }: GroupPageProps) {
         currentId={group.id}
         groups={groups.map(({ id, name }) => ({ id, name }))}
       />
-      <GroupHeader name={group.name} dateRangeLabel={group.dateRangeLabel} />
+      <GroupHeader
+        name={group.name}
+        ageGroup={group.ageGroup}
+        dateRangeLabel={group.dateRangeLabel}
+      />
       <Notice heading="Testa isen" text={group.testIceNotice.text} />
       <ScheduleSection
         schedule={group.schedule}

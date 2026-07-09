@@ -28,7 +28,7 @@ export default function ShareButton({ title }: { title: string }) {
 
   return (
     <button type="button" className={styles.btn} onClick={share}>
-      {copied ? "Länk kopierad!" : "Dela schema"} <i aria-hidden="true">↗</i>
+      {copied ? "Länk kopierad!" : "Dela schemat"} <i aria-hidden="true">↗</i>
     </button>
   );
 }

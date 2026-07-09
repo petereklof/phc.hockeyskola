@@ -21,8 +21,7 @@ function MapsLink({ location }: { location: Location }) {
 
 export default function PracticalInfo({ group, locations }: PracticalInfoProps) {
   const lunch = locations[group.practicalInfo.lunchLocationId];
-  const theory = locations[group.practicalInfo.theoryLocationId];
-  const fitness = group.practicalInfo.fitnessLocationIds.map((id) => locations[id]);
+  const arena = locations[group.practicalInfo.arenaLocationId];
 
   return (
     <section className={styles.practical}>
@@ -40,13 +39,9 @@ export default function PracticalInfo({ group, locations }: PracticalInfoProps) 
           <MapsLink location={lunch} />
         </li>
         <li className={styles.card}>
-          <span className={styles.label}>Teorilokal</span>
-          <span className={styles.value}>{theory.name}</span>
-          <MapsLink location={theory} />
-        </li>
-        <li className={styles.card}>
-          <span className={styles.label}>Fyslokal</span>
-          <span className={styles.value}>{fitness.map((l) => l.name).join(" / ")}</span>
+          <span className={styles.label}>Ishall</span>
+          <span className={styles.value}>{arena.name}</span>
+          <MapsLink location={arena} />
         </li>
       </ul>
     </section>

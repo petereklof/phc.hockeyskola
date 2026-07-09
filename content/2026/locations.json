@@ -22,5 +22,17 @@
     "address": "Christinaskolan, Piteå",
     "mapsUrl": "https://maps.google.com/?q=Christinaskolan+Pite%C3%A5",
     "tba": true
+  },
+  "vip-rummet": {
+    "name": "VIP-rummet i LF Arena",
+    "address": "LF Arena, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=LF+Arena+Pite%C3%A5",
+    "tba": true
+  },
+  "fys-samling": {
+    "name": "Samling mellan ishall och löparbanor",
+    "address": "LF Arena, Piteå",
+    "mapsUrl": "https://maps.google.com/?q=LF+Arena+Pite%C3%A5",
+    "tba": true
   }
 }

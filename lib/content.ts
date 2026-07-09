@@ -26,11 +26,12 @@ const LocationSchema = z.strictObject({
 
 const LocationsSchema = z.record(z.string(), LocationSchema);
 
+// Contacts are phone-only by decision — no email field exists, and the strict
+// schemas reject one if it sneaks back into the JSON.
 const SharedContactSchema = z.strictObject({
   role: z.string(),
   name: z.string(),
   phone: z.string(),
-  email: z.string().optional(),
 });
 
 const ContactsSharedSchema = z.strictObject({
@@ -88,7 +89,6 @@ const ContactSchema = z.strictObject({
   role: z.string(),
   name: z.string().nullable(),
   phone: z.string().nullable().optional(),
-  email: z.string().nullable().optional(),
   tba: z.boolean().optional(),
 });
 
@@ -112,8 +112,7 @@ const GroupSchema = z
     lockerRoom: z.strictObject({ number: z.string(), building: z.string() }),
     practicalInfo: z.strictObject({
       lunchLocationId: z.string(),
-      theoryLocationId: z.string(),
-      fitnessLocationIds: z.array(z.string()).min(1),
+      arenaLocationId: z.string(), // everything happens on the same arena area
     }),
     testIceNotice: z.strictObject({ text: z.string(), tba: z.boolean() }),
     contacts: z.array(z.union([ContactRefSchema, ContactSchema])).min(1),
@@ -176,8 +175,7 @@ export function isGroupId(value: string): value is GroupId {
 for (const group of groups) {
   const practicalIds = [
     group.practicalInfo.lunchLocationId,
-    group.practicalInfo.theoryLocationId,
-    ...group.practicalInfo.fitnessLocationIds,
+    group.practicalInfo.arenaLocationId,
   ];
   for (const locationId of practicalIds) {
     if (!(locationId in locations)) {

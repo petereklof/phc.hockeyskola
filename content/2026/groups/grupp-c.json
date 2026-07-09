@@ -2,97 +2,545 @@
   "id": "c",
   "ageGroup": "2015-2016",
   "name": "Grupp C",
-  "dateRangeLabel": "Måndag 3 aug – lördag 8 aug 2026",
+  "dateRangeLabel": "3–8 augusti 2026",
   "lockerRoom": {
     "number": "4",
-    "building": "Isstadion"
+    "building": "LF Arena"
   },
   "practicalInfo": {
     "lunchLocationId": "christinaskolan",
-    "theoryLocationId": "lf-arena",
-    "fitnessLocationIds": ["lf-arena", "grisberget"]
+    "arenaLocationId": "lf-arena"
   },
   "testIceNotice": {
     "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Detta sker i friåkningsform och är förbehållet hockeyskolans elever. Info om dag och tid kommer.",
     "tba": true
   },
   "contacts": [
-    { "role": "Instruktör", "name": "Exempel Exempelsson", "phone": "070-123 45 56", "tba": true },
-    { "role": "Assisterande instruktör", "name": "Exempel Exempelsson", "phone": "070-123 45 56", "tba": true },
-    { "role": "Faddrar", "name": "Exempel Exempelsson", "phone": "070-123 45 56", "tba": true },
-    { "ref": "kitchen" },
-    { "ref": "goalieCoach" },
-    { "ref": "director" }
+    {
+      "role": "Instruktör",
+      "name": "Exempel Exempelsson",
+      "phone": "070-123 45 56",
+      "tba": true
+    },
+    {
+      "role": "Assisterande instruktör",
+      "name": "Exempel Exempelsson",
+      "phone": "070-123 45 56",
+      "tba": true
+    },
+    {
+      "role": "Fadder",
+      "name": "Exempel Exempelsson",
+      "phone": "070-123 45 56",
+      "tba": true
+    },
+    {
+      "role": "Fadder",
+      "name": "Exempel Exempelsson",
+      "phone": "070-123 45 56",
+      "tba": true
+    },
+    {
+      "ref": "kitchen"
+    },
+    {
+      "ref": "goalieCoach"
+    },
+    {
+      "ref": "director"
+    }
   ],
   "schedule": [
     {
       "date": "2026-08-03",
       "weekday": "Måndag",
       "events": [
-        { "id": "c-mon-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "09:30", "timeEnd": null, "modalContent": null },
-        { "id": "c-mon-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "10:35", "timeEnd": "11:45", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-mon-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "12:30", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
-        { "id": "c-mon-teori", "type": "teori", "category": "training", "title": "Teori", "timeStart": "13:30", "timeEnd": "14:15", "modalContent": { "locationId": "lf-arena", "topic": null, "tba": ["topic"] } },
-        { "id": "c-mon-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "14:30", "timeEnd": "15:30", "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
-        { "id": "c-mon-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "16:15", "timeEnd": "17:25", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } }
+        {
+          "id": "c-mon-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "09:30",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-mon-istraning-1",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "10:35",
+          "timeEnd": "11:45",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-mon-lunch",
+          "type": "lunch",
+          "category": "other",
+          "title": "Lunch",
+          "timeStart": "12:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "christinaskolan",
+            "contactRef": "kitchen"
+          }
+        },
+        {
+          "id": "c-mon-teori",
+          "type": "teori",
+          "category": "training",
+          "title": "Teori",
+          "timeStart": "13:30",
+          "timeEnd": "14:15",
+          "modalContent": {
+            "locationId": "vip-rummet",
+            "topic": null,
+            "tba": [
+              "topic"
+            ]
+          }
+        },
+        {
+          "id": "c-mon-fys",
+          "type": "fystraning",
+          "category": "training",
+          "title": "Fysträning",
+          "timeStart": "14:30",
+          "timeEnd": "15:30",
+          "modalContent": {
+            "locationId": "fys-samling",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-mon-istraning-2",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "16:15",
+          "timeEnd": "17:25",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        }
       ]
     },
     {
       "date": "2026-08-04",
       "weekday": "Tisdag",
       "events": [
-        { "id": "c-tue-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "08:15", "timeEnd": null, "modalContent": null },
-        { "id": "c-tue-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "09:10", "timeEnd": "10:20", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-tue-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "11:30", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
-        { "id": "c-tue-aktivitet", "type": "aktivitet", "category": "other", "title": "Aktivitet", "timeStart": "12:30", "timeEnd": null, "modalContent": { "description": null, "tba": ["description"] } },
-        { "id": "c-tue-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "13:30", "timeEnd": null, "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
-        { "id": "c-tue-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "14:50", "timeEnd": "16:00", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-tue-malvakt", "type": "malvaktstraning", "category": "other", "title": "Målvaktsträning", "timeStart": "19:05", "timeEnd": "20:30", "modalContent": { "locationId": "isstadion", "info": "Gäller alla deltagande målvakter, samtliga grupper.", "contactRef": "goalieCoach" } }
+        {
+          "id": "c-tue-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "08:15",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-tue-istraning-1",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "09:10",
+          "timeEnd": "10:20",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-tue-lunch",
+          "type": "lunch",
+          "category": "other",
+          "title": "Lunch",
+          "timeStart": "11:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "christinaskolan",
+            "contactRef": "kitchen"
+          }
+        },
+        {
+          "id": "c-tue-aktivitet",
+          "type": "aktivitet",
+          "category": "other",
+          "title": "Aktivitet",
+          "timeStart": "12:30",
+          "timeEnd": null,
+          "modalContent": {
+            "description": null,
+            "tba": [
+              "description"
+            ]
+          }
+        },
+        {
+          "id": "c-tue-fys",
+          "type": "fystraning",
+          "category": "training",
+          "title": "Fysträning",
+          "timeStart": "13:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "fys-samling",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-tue-istraning-2",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "14:50",
+          "timeEnd": "16:00",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-tue-malvakt",
+          "type": "malvaktstraning",
+          "category": "other",
+          "title": "Målvaktsträning",
+          "timeStart": "19:05",
+          "timeEnd": "20:30",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "info": "Gäller alla deltagande målvakter, samtliga grupper.",
+            "contactRef": "goalieCoach"
+          }
+        }
       ]
     },
     {
       "date": "2026-08-05",
       "weekday": "Onsdag",
       "events": [
-        { "id": "c-wed-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "07:00", "timeEnd": null, "modalContent": null },
-        { "id": "c-wed-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "07:45", "timeEnd": "08:55", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-wed-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "09:30", "timeEnd": null, "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
-        { "id": "c-wed-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "10:15", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
-        { "id": "c-wed-teori", "type": "teori", "category": "training", "title": "Teori", "timeStart": "11:00", "timeEnd": "12:00", "modalContent": { "locationId": "lf-arena", "topic": null, "tba": ["topic"] } },
-        { "id": "c-wed-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "13:25", "timeEnd": "14:35", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } }
+        {
+          "id": "c-wed-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "07:00",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-wed-istraning-1",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "07:45",
+          "timeEnd": "08:55",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-wed-fys",
+          "type": "fystraning",
+          "category": "training",
+          "title": "Fysträning",
+          "timeStart": "09:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "fys-samling",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-wed-lunch",
+          "type": "lunch",
+          "category": "other",
+          "title": "Lunch",
+          "timeStart": "10:15",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "christinaskolan",
+            "contactRef": "kitchen"
+          }
+        },
+        {
+          "id": "c-wed-teori",
+          "type": "teori",
+          "category": "training",
+          "title": "Teori",
+          "timeStart": "11:00",
+          "timeEnd": "12:00",
+          "modalContent": {
+            "locationId": "vip-rummet",
+            "topic": null,
+            "tba": [
+              "topic"
+            ]
+          }
+        },
+        {
+          "id": "c-wed-istraning-2",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "13:25",
+          "timeEnd": "14:35",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        }
       ]
     },
     {
       "date": "2026-08-06",
       "weekday": "Torsdag",
       "events": [
-        { "id": "c-thu-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "11:15", "timeEnd": null, "modalContent": null },
-        { "id": "c-thu-istraning-1", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "12:00", "timeEnd": "13:10", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-thu-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "14:00", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
-        { "id": "c-thu-aktivitet", "type": "aktivitet", "category": "other", "title": "Aktivitet", "timeStart": "15:00", "timeEnd": "16:00", "modalContent": { "description": null, "tba": ["description"] } },
-        { "id": "c-thu-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "16:10", "timeEnd": "17:00", "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
-        { "id": "c-thu-istraning-2", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "17:40", "timeEnd": "18:50", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } }
+        {
+          "id": "c-thu-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "11:15",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-thu-istraning-1",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "12:00",
+          "timeEnd": "13:10",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-thu-lunch",
+          "type": "lunch",
+          "category": "other",
+          "title": "Lunch",
+          "timeStart": "14:00",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "christinaskolan",
+            "contactRef": "kitchen"
+          }
+        },
+        {
+          "id": "c-thu-aktivitet",
+          "type": "aktivitet",
+          "category": "other",
+          "title": "Aktivitet",
+          "timeStart": "15:00",
+          "timeEnd": "16:00",
+          "modalContent": {
+            "description": null,
+            "tba": [
+              "description"
+            ]
+          }
+        },
+        {
+          "id": "c-thu-fys",
+          "type": "fystraning",
+          "category": "training",
+          "title": "Fysträning",
+          "timeStart": "16:10",
+          "timeEnd": "17:00",
+          "modalContent": {
+            "locationId": "fys-samling",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-thu-istraning-2",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "17:40",
+          "timeEnd": "18:50",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        }
       ]
     },
     {
       "date": "2026-08-07",
       "weekday": "Fredag",
       "events": [
-        { "id": "c-fri-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "09:45", "timeEnd": null, "modalContent": null },
-        { "id": "c-fri-istraning", "type": "istraning", "category": "training", "title": "Isträning", "timeStart": "10:35", "timeEnd": "11:45", "modalContent": { "locationId": "isstadion", "focus": null, "tba": ["focus"] } },
-        { "id": "c-fri-lunch", "type": "lunch", "category": "other", "title": "Lunch", "timeStart": "12:30", "timeEnd": null, "modalContent": { "locationId": "christinaskolan", "contactRef": "kitchen" } },
-        { "id": "c-fri-teori", "type": "teori", "category": "training", "title": "Teori", "timeStart": "13:30", "timeEnd": "14:15", "modalContent": { "locationId": "lf-arena", "topic": null, "tba": ["topic"] } },
-        { "id": "c-fri-fys", "type": "fystraning", "category": "training", "title": "Fysträning", "timeStart": "14:30", "timeEnd": "15:30", "modalContent": { "locationId": "lf-arena", "focus": null, "tba": ["focus"] } },
-        { "id": "c-fri-matchspel", "type": "matchspel", "category": "other", "title": "Matchspel", "timeStart": "16:15", "timeEnd": "17:25", "modalContent": { "locationId": "isstadion", "info": null, "tba": ["info"] } }
+        {
+          "id": "c-fri-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "09:45",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-fri-istraning",
+          "type": "istraning",
+          "category": "training",
+          "title": "Isträning",
+          "timeStart": "10:35",
+          "timeEnd": "11:45",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-fri-lunch",
+          "type": "lunch",
+          "category": "other",
+          "title": "Lunch",
+          "timeStart": "12:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "christinaskolan",
+            "contactRef": "kitchen"
+          }
+        },
+        {
+          "id": "c-fri-teori",
+          "type": "teori",
+          "category": "training",
+          "title": "Teori",
+          "timeStart": "13:30",
+          "timeEnd": "14:15",
+          "modalContent": {
+            "locationId": "vip-rummet",
+            "topic": null,
+            "tba": [
+              "topic"
+            ]
+          }
+        },
+        {
+          "id": "c-fri-fys",
+          "type": "fystraning",
+          "category": "training",
+          "title": "Fysträning",
+          "timeStart": "14:30",
+          "timeEnd": "15:30",
+          "modalContent": {
+            "locationId": "fys-samling",
+            "focus": null,
+            "tba": [
+              "focus"
+            ]
+          }
+        },
+        {
+          "id": "c-fri-matchspel",
+          "type": "matchspel",
+          "category": "training",
+          "title": "Matchspel",
+          "timeStart": "16:15",
+          "timeEnd": "17:25",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "info": null,
+            "tba": [
+              "info"
+            ]
+          }
+        }
       ]
     },
     {
       "date": "2026-08-08",
       "weekday": "Lördag",
       "events": [
-        { "id": "c-sat-samling", "type": "samling", "category": "other", "title": "Samling", "timeStart": "09:45", "timeEnd": null, "modalContent": null },
-        { "id": "c-sat-matchspel", "type": "matchspel", "category": "other", "title": "Matchspel", "timeStart": "10:45", "timeEnd": "11:45", "modalContent": { "locationId": "isstadion", "info": null, "tba": ["info"] } },
-        { "id": "c-sat-fika", "type": "fika", "category": "other", "title": "Fika/avslut", "timeStart": "13:30", "timeEnd": null, "modalContent": { "locationId": null, "info": null, "tba": ["locationId", "info"] } }
+        {
+          "id": "c-sat-samling",
+          "type": "samling",
+          "category": "other",
+          "title": "Samling i omklädningsrummet",
+          "timeStart": "09:45",
+          "timeEnd": null,
+          "modalContent": null
+        },
+        {
+          "id": "c-sat-matchspel",
+          "type": "matchspel",
+          "category": "training",
+          "title": "Matchspel",
+          "timeStart": "10:45",
+          "timeEnd": "11:45",
+          "modalContent": {
+            "locationId": "lf-arena",
+            "info": null,
+            "tba": [
+              "info"
+            ]
+          }
+        },
+        {
+          "id": "c-sat-fika",
+          "type": "fika",
+          "category": "other",
+          "title": "Fika/avslut",
+          "timeStart": "13:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": null,
+            "info": null,
+            "tba": [
+              "locationId",
+              "info"
+            ]
+          }
+        }
       ]
     }
   ]

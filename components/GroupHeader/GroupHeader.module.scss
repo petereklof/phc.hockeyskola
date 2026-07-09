@@ -28,7 +28,7 @@
 
 .title {
   @include heading;
-  @include heading-stroke($color-red);
+  @include heading-stroke($color-text);
   margin: 0;
   font-size: 52px;
   letter-spacing: -0.01em;

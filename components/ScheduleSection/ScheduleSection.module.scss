@@ -1,12 +1,84 @@
 @use "tokens" as *;
 
 .schedule {
-  padding: 24px 18px 8px;
+  padding: 24px 0 8px;
 }
 
 .heading {
   @include heading;
   margin: 0 0 14px;
-  padding: 0 4px;
+  padding: 0 22px;
   font-size: 22px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 18px; // + 6px panelInner padding = same 24px visual gap
+  padding: 0 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: transparent;
+  border: 1px solid $color-faint;
+  border-radius: 999px;
+  color: $color-muted;
+  cursor: pointer;
+  transition: 0.25s;
+
+  &[aria-selected="true"] {
+    background: $color-red;
+    border-color: $color-red;
+    color: $color-text;
+  }
+}
+
+// One panel per day; native horizontal swipe with snap. Height is set inline
+// from the swipe position (see ScheduleSection.tsx) so short days don't leave
+// dead space below and taller days aren't clipped mid-swipe.
+.slider {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.panel {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 18px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+// Measured by the height sync — must wrap the panel's real content height.
+// The top padding gives MBJ Chunky's Å/Ö diacritics room; they render above
+// the em box and were clipped by the slider's overflow-y: hidden.
+.panelInner {
+  display: flow-root;
+  padding-top: 6px;
+}
+
+@include reduced-motion {
+  .tab {
+    transition: none;
+  }
 }

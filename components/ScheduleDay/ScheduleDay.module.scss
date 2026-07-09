@@ -109,7 +109,9 @@ button.row {
 .chevron {
   margin-left: auto;
   color: $color-red;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 @include reduced-motion {
