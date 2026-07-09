@@ -1,0 +1,19 @@
+// Minimal global reset — design tokens live in styles/_tokens.scss (step 2).
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #211e1e;
+  color: #ffffff;
+  font-family: var(--font-body), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+}
