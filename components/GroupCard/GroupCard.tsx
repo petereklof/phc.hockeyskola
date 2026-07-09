@@ -12,7 +12,7 @@ export default function GroupCard({ id, letter, ageLabel }: GroupCardData) {
     <div className={styles.tile} data-tile>
       <span className={styles.grp}>Grupp</span>
       <span className={styles.letter}>{letter}</span>
-      <span className={styles.age}>{ageLabel}</span>
+      <span className={styles.age}>Födda {ageLabel}</span>
       <Link
         className={styles.btn}
         href={`/grupp/${id}`}
