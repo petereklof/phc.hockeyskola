@@ -20,15 +20,6 @@ interface EventModalProps {
   onClose: () => void;
 }
 
-// Swedish labels for the free-text modal fields (content.md §2.3).
-const FIELD_LABELS: Record<string, string> = {
-  focus: "Fokus",
-  topic: "Ämne",
-  speaker: "Föreläsare",
-  description: "Beskrivning",
-  info: "Info",
-};
-
 function Tba() {
   return <span className={styles.tba}>Information kommer</span>;
 }
@@ -88,12 +79,6 @@ export default function EventModal({
     ? `${event.timeStart}–${event.timeEnd}`
     : event.timeStart;
 
-  // Free-text fields, rendered in spec order when the key exists in the JSON
-  // (null value = "Information kommer").
-  const fields = (["focus", "topic", "speaker", "description", "info"] as const).filter(
-    (key) => content != null && key in content,
-  );
-
   return (
     <dialog
       ref={dialogRef}
@@ -147,7 +132,7 @@ export default function EventModal({
             </div>
           )}
 
-          {event.type === "lunch" && (
+          {content?.showMenu && (
             <div className={styles.field}>
               <dt className={styles.label}>Dagens meny</dt>
               <dd className={styles.value}>
@@ -157,10 +142,10 @@ export default function EventModal({
             </div>
           )}
 
-          {fields.map((key) => (
-            <div className={styles.field} key={key}>
-              <dt className={styles.label}>{FIELD_LABELS[key]}</dt>
-              <dd className={styles.value}>{content?.[key] ?? <Tba />}</dd>
+          {content?.details?.map(({ label, value }) => (
+            <div className={styles.field} key={label}>
+              <dt className={styles.label}>{label}</dt>
+              <dd className={styles.value}>{value ?? <Tba />}</dd>
             </div>
           ))}
 

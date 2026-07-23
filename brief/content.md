@@ -114,13 +114,13 @@ All field labels and copy below are shown in Swedish in the app; English here on
 
 **Matsedel 2026** (same across all groups; keyed by date — see `schema-data-model.md` for the shared `menu.json` modeling):
 
-| Datum | Rätt |
-|---|---|
-| Måndag 3 aug | Pannbiff m. klyftpotatis |
-| Tisdag 4 aug | Kycklinggryta m. ris |
-| Onsdag 5 aug | Köttfärssås m. spaghetti |
-| Torsdag 6 aug | Kebabgryta m. ris |
-| Fredag 7 aug | Köttbullar m. makaroner |
+| Datum | Rätt                      |
+|---|---------------------------|
+| Måndag 3 aug | Pannbiff med klyftpotatis |
+| Tisdag 4 aug | Kycklinggryta med ris     |
+| Onsdag 5 aug | Köttfärssås med spaghetti |
+| Torsdag 6 aug | Kebabgryta med ris        |
+| Fredag 7 aug | Köttbullar med makaroner  |
 
 - **Allergi-not (gäller samtliga rätter)**: "Samtliga rätter är gluten- och laktosfria samt fria från ägg och nötter." Show once per lunch modal (or as a shared note), not per dish.
 - Lördag 8 aug (avslutning): menu not specified — mark "Information kommer" if a lunch is served that day.

@@ -43,7 +43,7 @@ export default function Hero() {
         });
 
       parallax(bgRef.current, 0.3);
-      parallax(logoRef.current, -0.07);
+      parallax(logoRef.current, -0.035);
     },
     { scope: root },
   );

@@ -47,31 +47,21 @@ const MenuSchema = z.strictObject({
 
 const CONTACT_REFS = ["kitchen", "goalieCoach", "director"] as const;
 
+// Free-text modal rows: label is shown as-is (Swedish), value null = "Information
+// kommer" (the machine-readable TBA marker — surfaced by the build-time report).
+const DetailSchema = z.strictObject({
+  label: z.string(),
+  value: z.string().nullable(),
+});
+
 const ModalContentSchema = z.strictObject({
   locationId: z.string().nullable().optional(),
-  focus: z.string().nullable().optional(),
-  topic: z.string().nullable().optional(),
-  speaker: z.string().nullable().optional(),
-  info: z.string().nullable().optional(),
-  description: z.string().nullable().optional(),
+  showMenu: z.literal(true).optional(), // show the day's lunch menu in the modal
+  details: z.array(DetailSchema).optional(),
   contactRef: z.enum(CONTACT_REFS).optional(),
-  tba: z.array(z.string()).optional(), // field names still awaiting real content
 });
 
 const EventSchema = z.strictObject({
-  id: z.string(),
-  type: z.enum([
-    "samling",
-    "istraning",
-    "fystraning",
-    "lunch",
-    "teori",
-    "forelasning",
-    "matchspel",
-    "aktivitet",
-    "malvaktstraning",
-    "fika",
-  ]),
   category: z.enum(["training", "other"]),
   title: z.string(),
   timeStart: timeString,
@@ -186,7 +176,9 @@ for (const group of groups) {
     for (const event of day.events) {
       const locationId = event.modalContent?.locationId;
       if (locationId && !(locationId in locations)) {
-        throw new Error(`Unknown locationId "${locationId}" in event "${event.id}"`);
+        throw new Error(
+          `Unknown locationId "${locationId}" in "${event.title}" (${group.id} ${day.date} ${event.timeStart})`,
+        );
       }
     }
   }
@@ -204,7 +196,8 @@ function collectTba(value: unknown, path: string, out: string[]): void {
   if (value && typeof value === "object") {
     const obj = value as Record<string, unknown>;
     if (obj.tba === true) out.push(path);
-    if (Array.isArray(obj.tba)) for (const field of obj.tba) out.push(`${path}.${field}`);
+    // A detail row with value: null is awaiting real content (see DetailSchema).
+    if (typeof obj.label === "string" && obj.value === null) out.push(`${path} (${obj.label})`);
     for (const [key, child] of Object.entries(obj)) {
       if (key !== "tba") collectTba(child, path ? `${path}.${key}` : key, out);
     }

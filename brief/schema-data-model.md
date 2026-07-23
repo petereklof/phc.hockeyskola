@@ -9,6 +9,7 @@
 - **No group-based color coding.** Color is derived from `category` (`training` vs `other`), not from which group the schedule belongs to.
 - **No `shared` flag.** Events like goalie training don't need a data flag marking them as cross-group — the fact that each group page only shows its own schedule means this is purely a copy concern (mention it in `modalContent.info`), not a data-modeling concern.
 - **No separate `clickable` flag.** Whether an event opens a modal is derived purely from whether `modalContent` is present (`null`/omitted = not clickable). One less field to keep in sync.
+- **No per-event `id` or `type` taxonomy.** An event is just `category` (drives row color), `title` (what's shown) and generic `modalContent.details` rows (`{ label, value }`, rendered as-is). Renaming "Föreläsning" to "Aktivitet" is a title edit, and new kinds of events need no schema change. The one behavior that used to hang off `type` — the lunch menu — is an explicit `showMenu: true` flag instead.
 - **Locations and recurring contacts are normalized** into lookup tables and referenced by ID, rather than repeated inline on every event — avoids duplication and typos across ~150+ event entries (4 groups × 6 days × ~6 events).
 - **TBA content is explicit**, not just missing. Use `"tba": true` or a literal placeholder string agreed with the UI (see §5), never leave a field silently absent when it's expected to eventually hold real content.
 
@@ -38,11 +39,6 @@ Keeping one JSON file per group (rather than one giant file) makes it easier to 
 
 ```json
 {
-  "isstadion": {
-    "name": "Isstadion",
-    "address": "Isstadion, Piteå",
-    "mapsUrl": "https://maps.google.com/?q=Isstadion+Pite%C3%A5"
-  },
   "lf-arena": {
     "name": "LF Arena",
     "address": "LF Arena, Piteå",
@@ -152,8 +148,6 @@ The lunch menu is the same for all groups on a given day, so it's a shared looku
       "weekday": "Måndag",
       "events": [
         {
-          "id": "a-mon-samling",
-          "type": "samling",
           "category": "other",
           "title": "Samling",
           "timeStart": "07:00",
@@ -161,68 +155,57 @@ The lunch menu is the same for all groups on a given day, so it's a shared looku
           "modalContent": null
         },
         {
-          "id": "a-mon-istraning-1",
-          "type": "istraning",
           "category": "training",
           "title": "Isträning",
           "timeStart": "07:45",
           "timeEnd": "08:55",
           "modalContent": {
-            "locationId": "isstadion",
-            "focus": null,
-            "tba": ["focus"]
+            "locationId": "lf-arena",
+            "details": [{ "label": "Fokus", "value": null }]
           }
         },
         {
-          "id": "a-mon-forelasning",
-          "type": "forelasning",
           "category": "other",
           "title": "Föreläsning",
           "timeStart": "10:10",
           "timeEnd": "10:35",
           "modalContent": {
             "locationId": "lf-arena",
-            "topic": null,
-            "speaker": null,
-            "tba": ["topic", "speaker"]
+            "details": [
+              { "label": "Ämne", "value": null },
+              { "label": "Föreläsare", "value": null }
+            ]
           }
         },
         {
-          "id": "a-mon-lunch",
-          "type": "lunch",
           "category": "other",
           "title": "Lunch",
           "timeStart": "10:45",
           "timeEnd": null,
           "modalContent": {
             "locationId": "christinaskolan",
+            "showMenu": true,
             "contactRef": "kitchen"
           }
         },
         {
-          "id": "a-mon-fys",
-          "type": "fystraning",
           "category": "training",
           "title": "Fysträning",
           "timeStart": "11:30",
           "timeEnd": null,
           "modalContent": {
             "locationId": "lf-arena",
-            "focus": null,
-            "tba": ["focus"]
+            "details": [{ "label": "Fokus", "value": null }]
           }
         },
         {
-          "id": "a-mon-istraning-2",
-          "type": "istraning",
           "category": "training",
           "title": "Isträning",
           "timeStart": "13:25",
           "timeEnd": "14:35",
           "modalContent": {
-            "locationId": "isstadion",
-            "focus": null,
-            "tba": ["focus"]
+            "locationId": "lf-arena",
+            "details": [{ "label": "Fokus", "value": null }]
           }
         }
       ]
@@ -237,21 +220,21 @@ The lunch menu is the same for all groups on a given day, so it's a shared looku
 
 ```json
 {
-  "id": "a-wed-malvakt",
-  "type": "malvaktstraning",
   "category": "other",
   "title": "Målvaktsträning",
   "timeStart": "19:05",
   "timeEnd": "20:30",
   "modalContent": {
-    "locationId": "isstadion",
-    "info": "Gäller alla deltagande målvakter, samtliga grupper.",
+    "locationId": "lf-arena",
+    "details": [
+      { "label": "Info", "value": "Gäller alla deltagande målvakter, samtliga grupper." }
+    ],
     "contactRef": "goalieCoach"
   }
 }
 ```
 
-The cross-group nature is communicated purely through the `info` copy — no extra data field required.
+The cross-group nature is communicated purely through the detail copy — no extra data field required.
 
 ---
 
@@ -260,26 +243,24 @@ The cross-group nature is communicated purely through the `info` copy — no ext
 ```typescript
 type EventCategory = "training" | "other";
 
-type EventType =
-  | "samling"
-  | "istraning"
-  | "fystraning"
-  | "lunch"
-  | "teori"
-  | "forelasning"
-  | "matchspel"
-  | "aktivitet"
-  | "malvaktstraning"
-  | "fika";
+interface EventDetail {
+  label: string; // Swedish, rendered as-is, e.g. "Fokus", "Ämne"
+  value: string | null; // null = "Information kommer" (TBA)
+}
+
+interface ModalContent {
+  locationId?: string | null; // key in locations.json
+  showMenu?: true; // show the day's lunch menu (menu.json lookup by date)
+  details?: EventDetail[];
+  contactRef?: "kitchen" | "goalieCoach" | "director";
+}
 
 interface ScheduleEvent {
-  id: string;
-  type: EventType;
   category: EventCategory;
   title: string; // Swedish label, e.g. "Isträning"
   timeStart: string; // "HH:mm"
   timeEnd: string | null;
-  modalContent: Record<string, unknown> | null; // null = not clickable
+  modalContent: ModalContent | null; // null = not clickable
 }
 
 interface DaySchedule {

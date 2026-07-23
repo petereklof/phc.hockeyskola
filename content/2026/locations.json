@@ -1,10 +1,4 @@
 {
-  "isstadion": {
-    "name": "Isstadion",
-    "address": "Isstadion, Piteå",
-    "mapsUrl": "https://maps.google.com/?q=Isstadion+Pite%C3%A5",
-    "tba": true
-  },
   "lf-arena": {
     "name": "LF Arena",
     "address": "LF Arena, Piteå",

@@ -73,7 +73,7 @@ export default function ScheduleDay({ day, locations, isActive, onSelect }: Sche
           );
 
           return (
-            <li key={event.id}>
+            <li key={`${event.timeStart}-${event.title}`}>
               {clickable ? (
                 <button type="button" className={rowClass} onClick={() => onSelect(event)}>
                   {inner}
