@@ -124,6 +124,16 @@ export default function EventModal({
                     >
                       Hitta hit <i aria-hidden="true">↗</i>
                     </a>
+                    {location.infoLink && (
+                      <a
+                        className={styles.infoLink}
+                        href={location.infoLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {location.infoLink.label} <i aria-hidden="true">↗</i>
+                      </a>
+                    )}
                   </>
                 ) : (
                   <Tba />

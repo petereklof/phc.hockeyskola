@@ -8,14 +8,26 @@ interface PracticalInfoProps {
 
 function MapsLink({ location }: { location: Location }) {
   return (
-    <a
-      className={styles.maps}
-      href={location.mapsUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Hitta hit <i aria-hidden="true">↗</i>
-    </a>
+    <>
+      <a
+        className={styles.maps}
+        href={location.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Hitta hit <i aria-hidden="true">↗</i>
+      </a>
+      {location.infoLink && (
+        <a
+          className={styles.infoLink}
+          href={location.infoLink.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {location.infoLink.label} <i aria-hidden="true">↗</i>
+        </a>
+      )}
+    </>
   );
 }
 

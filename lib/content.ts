@@ -21,6 +21,8 @@ const LocationSchema = z.strictObject({
   name: z.string(),
   address: z.string(),
   mapsUrl: z.url(),
+  // Secondary link rendered inline next to "Hitta hit" (e.g. parking info on laget.se).
+  infoLink: z.strictObject({ label: z.string(), url: z.url() }).optional(),
   tba: z.boolean().optional(), // true = placeholder maps link, real coordinates TBD
 });
 
