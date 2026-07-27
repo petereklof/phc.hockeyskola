@@ -12,7 +12,7 @@
     "arenaLocationId": "lf-arena"
   },
   "testIceNotice": {
-    "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Detta sker i friåkningsform och är förbehållet hockeyskolans elever. Info om dag och tid kommer.",
+    "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Detta sker i friåkningsform och är förbehållet hockeyskolans elever. Blir det av så kommer det info om dag och tid.",
     "tba": true
   },
   "contacts": [
@@ -57,34 +57,23 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "09:10",
           "timeEnd": "10:20",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
           "category": "other",
-          "title": "Föreläsning",
+          "title": "Aktivitet",
           "timeStart": "10:50",
           "timeEnd": "11:20",
           "modalContent": {
-            "locationId": "lf-arena",
             "details": [
               {
-                "label": "Ämne",
-                "value": null
-              },
-              {
-                "label": "Föreläsare",
-                "value": null
+                "label": "Beskrivning",
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
@@ -117,31 +106,25 @@
         },
         {
           "category": "other",
-          "title": "Bollspel",
+          "title": "Aktivitet",
           "timeStart": "13:30",
           "timeEnd": "14:10",
           "modalContent": {
             "details": [
               {
                 "label": "Beskrivning",
-                "value": null
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "14:50",
           "timeEnd": "16:00",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         }
       ]
@@ -159,17 +142,11 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "07:45",
           "timeEnd": "08:55",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
@@ -207,39 +184,32 @@
             "details": [
               {
                 "label": "Beskrivning",
-                "value": null
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
         },
         {
-          "category": "training",
-          "title": "Teori",
+          "category": "other",
+          "title": "Aktivitet",
           "timeStart": "12:15",
           "timeEnd": "12:50",
           "modalContent": {
-            "locationId": "vip-rummet",
             "details": [
               {
-                "label": "Ämne",
-                "value": null
+                "label": "Beskrivning",
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "13:25",
           "timeEnd": "14:35",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
@@ -252,7 +222,7 @@
             "details": [
               {
                 "label": "Info",
-                "value": "Gäller alla deltagande målvakter, samtliga grupper."
+                "value": "På passet samlas alla målvakter från alla grupper för att köra en målvaktsspecifik träning."
               }
             ],
             "contactRef": "goalieCoach"
@@ -273,17 +243,11 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "12:00",
           "timeEnd": "13:10",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
@@ -298,16 +262,15 @@
           }
         },
         {
-          "category": "training",
-          "title": "Teori",
+          "category": "other",
+          "title": "Aktivitet",
           "timeStart": "15:00",
           "timeEnd": "16:00",
           "modalContent": {
-            "locationId": "vip-rummet",
             "details": [
               {
-                "label": "Ämne",
-                "value": null
+                "label": "Beskrivning",
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
@@ -329,15 +292,24 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "17:40",
           "timeEnd": "18:50",
           "modalContent": {
-            "locationId": "lf-arena",
+            "locationId": "lf-arena"
+          }
+        },
+        {
+          "category": "other",
+          "title": "Samkväll",
+          "timeStart": "18:30",
+          "timeEnd": null,
+          "modalContent": {
+            "locationId": "torontokiosken",
             "details": [
               {
-                "label": "Fokus",
-                "value": null
+                "label": "Info",
+                "value": "Vi bjuder på palt! Under kvällen får man också vara med och träna tillsammans med A-laget. Ispasset överlappar samkvällen något – ni är välkomna när ni är klara på isen. Mer detaljerad info kommer senare."
               }
             ]
           }
@@ -357,17 +329,11 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "10:35",
           "timeEnd": "11:45",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
@@ -382,23 +348,22 @@
           }
         },
         {
-          "category": "training",
-          "title": "Teori",
+          "category": "other",
+          "title": "Aktivitet",
           "timeStart": "13:30",
           "timeEnd": "14:15",
           "modalContent": {
-            "locationId": "vip-rummet",
             "details": [
               {
-                "label": "Ämne",
-                "value": null
+                "label": "Beskrivning",
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
         },
         {
           "category": "training",
-          "title": "Fys/Skytte",
+          "title": "Fysträning",
           "timeStart": "14:45",
           "timeEnd": "15:30",
           "modalContent": {
@@ -413,17 +378,11 @@
         },
         {
           "category": "training",
-          "title": "Matchspel",
+          "title": "Ispass",
           "timeStart": "16:15",
           "timeEnd": "17:25",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Info",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         }
       ]
@@ -441,17 +400,11 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "09:10",
           "timeEnd": "10:20",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         },
         {
@@ -466,16 +419,15 @@
           }
         },
         {
-          "category": "training",
-          "title": "Teori",
+          "category": "other",
+          "title": "Aktivitet",
           "timeStart": "12:30",
           "timeEnd": "13:15",
           "modalContent": {
-            "locationId": "vip-rummet",
             "details": [
               {
-                "label": "Ämne",
-                "value": null
+                "label": "Beskrivning",
+                "value": "Det kan handla om teori, bollspel, träning på skottplatta eller liknande. Mer info kommer under hockeyskolan."
               }
             ]
           }
@@ -497,17 +449,11 @@
         },
         {
           "category": "training",
-          "title": "Isträning",
+          "title": "Ispass",
           "timeStart": "14:50",
           "timeEnd": "16:00",
           "modalContent": {
-            "locationId": "lf-arena",
-            "details": [
-              {
-                "label": "Fokus",
-                "value": null
-              }
-            ]
+            "locationId": "lf-arena"
           }
         }
       ]

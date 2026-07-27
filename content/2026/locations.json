@@ -24,7 +24,13 @@
     "tba": true
   },
   "fys-samling": {
-    "name": "Samling mellan ishall och löparbanor",
+    "name": "Samling i omklädningsrum",
+    "address": "LF Arena / Grisberget",
+    "mapsUrl": "https://maps.google.com/?q=LF+Arena+Pite%C3%A5",
+    "tba": true
+  },
+  "torontokiosken": {
+    "name": "Torontokiosken",
     "address": "LF Arena, Piteå",
     "mapsUrl": "https://maps.google.com/?q=LF+Arena+Pite%C3%A5",
     "tba": true

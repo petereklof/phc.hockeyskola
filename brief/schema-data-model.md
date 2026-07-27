@@ -131,7 +131,7 @@ The lunch menu is the same for all groups on a given day, so it's a shared looku
     "fitnessLocationIds": ["lf-arena", "grisberget"]
   },
   "testIceNotice": {
-    "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Info om dag och tid kommer.",
+    "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Blir det av så kommer det info om dag och tid.",
     "tba": true
   },
   "contacts": [
