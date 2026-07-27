@@ -5,8 +5,7 @@ export default function SponsorSlot() {
     <section className={styles.sponsor}>
       <span className={styles.eyebrow}>I samarbete med</span>
       <div className={styles.box}>
-        <img className={styles.logo} src="/logo/logo.svg" alt="" aria-hidden="true" />
-        <span className={styles.label}>Sponsorlogotyp</span>
+        <img className={styles.logo} src="/images/galltval-lightgreen.svg" alt="Galltvål" />
       </div>
     </section>
   );

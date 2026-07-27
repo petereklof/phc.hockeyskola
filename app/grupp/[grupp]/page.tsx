@@ -7,6 +7,7 @@ import Notice from "@/components/Notice/Notice";
 import PracticalInfo from "@/components/PracticalInfo/PracticalInfo";
 import ScheduleSection from "@/components/ScheduleSection/ScheduleSection";
 import SiteFooter from "@/components/SiteFooter/SiteFooter";
+import SponsorSlot from "@/components/SponsorSlot/SponsorSlot";
 import {
   GROUP_IDS,
   contactsShared,
@@ -62,6 +63,7 @@ export default async function GroupPage({ params }: GroupPageProps) {
       />
       <ContactsSection contacts={group.contacts} shared={contactsShared} />
       <PracticalInfo group={group} locations={locations} />
+      <SponsorSlot />
       <SiteFooter />
     </main>
   );
