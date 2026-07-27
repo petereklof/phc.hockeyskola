@@ -25,8 +25,8 @@ export default function ScheduleDay({ day, locations, isActive, onSelect }: Sche
   const root = useRef<HTMLElement>(null);
 
   // Light stagger-in ONCE, for the day visible on page load. Re-running it on
-  // every swipe made the sideways navigation feel flickery, so day changes
-  // show their rows instantly. gsap.fromTo (not a CSS-hidden initial state)
+  // every day change made the sideways navigation feel flickery, so day
+  // changes show their rows instantly. gsap.fromTo (not a CSS-hidden initial state)
   // keeps the schedule readable without JS.
   useGSAP(
     () => {

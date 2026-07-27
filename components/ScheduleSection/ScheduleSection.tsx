@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { gsap, useGSAP } from "@/lib/gsap";
 import type {
   ContactRefKey,
   DaySchedule,
@@ -46,65 +47,69 @@ export default function ScheduleSection({
 }: ScheduleSectionProps) {
   const [selected, setSelected] = useState<Selected | null>(null);
   const [active, setActive] = useState(0);
+  const activeRef = useRef(0);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  // The slider is only as tall as the day being shown. The height is driven
-  // directly from the swipe position (lerp between the outgoing and incoming
-  // panel heights), so the bottom edge follows the finger instead of clipping
-  // the taller day or leaving dead space under the shorter one.
-  const syncHeight = () => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-    const panels = Array.from(slider.children) as HTMLElement[];
-    if (panels.length === 0) return;
-
-    const heights = panels.map((panel) => (panel.firstElementChild as HTMLElement).offsetHeight);
-    const progress = slider.clientWidth > 0 ? slider.scrollLeft / slider.clientWidth : 0;
-    const from = Math.min(Math.floor(progress), heights.length - 1);
-    const to = Math.min(from + 1, heights.length - 1);
-    const fraction = progress - from;
-
-    slider.style.height = `${heights[from] + (heights[to] - heights[from]) * fraction}px`;
+  const panelHeight = (index: number): number => {
+    const track = trackRef.current;
+    const panel = track?.children[index] as HTMLElement | undefined;
+    return panel ? (panel.firstElementChild as HTMLElement).offsetHeight : 0;
   };
 
-  const goTo = (index: number, smooth: boolean) => {
+  const { contextSafe } = useGSAP({ scope: sliderRef });
+
+  // Days are navigated from the tabs only (no swipe): the track slides
+  // sideways one full panel per day, and the slider animates to the incoming
+  // panel's height in the same tween so the content below moves smoothly.
+  const goTo = contextSafe((index: number, smooth: boolean) => {
     const slider = sliderRef.current;
-    if (!slider) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    slider.scrollTo({
-      left: index * slider.clientWidth,
-      behavior: smooth && !reduce ? "smooth" : "auto",
-    });
+    const track = trackRef.current;
+    if (!slider || !track) return;
+    activeRef.current = index;
     setActive(index);
-  };
 
-  // Initial height + keep it in sync when panel content or viewport resizes.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const target = { xPercent: -index * 100, height: panelHeight(index) };
+    if (!smooth || reduce) {
+      gsap.set(track, { xPercent: target.xPercent });
+      gsap.set(slider, { height: target.height });
+      return;
+    }
+    gsap.to(track, {
+      xPercent: target.xPercent,
+      duration: 0.45,
+      ease: "power3.inOut",
+      overwrite: "auto",
+    });
+    gsap.to(slider, {
+      height: target.height,
+      duration: 0.45,
+      ease: "power3.inOut",
+      overwrite: "auto",
+    });
+  });
+
   useEffect(() => {
-    syncHeight();
+    // Default day: today if we're mid-camp, otherwise Monday. Runs client-side
+    // only — the pages are prerendered, so the server can't know "today".
+    const index = schedule.findIndex((day) => day.date === todayIso());
+    goTo(index > 0 ? index : 0, false);
+
+    // Keep the slider height in sync when panel content or viewport resizes.
+    // Skipped while the height tween runs — the tween already ends at the
+    // measured target, and setting mid-flight would make it jump.
     const slider = sliderRef.current;
-    if (!slider) return;
-    const observer = new ResizeObserver(syncHeight);
-    observer.observe(slider);
-    for (const panel of slider.children) observer.observe(panel.firstElementChild as Element);
+    const track = trackRef.current;
+    if (!slider || !track) return;
+    const observer = new ResizeObserver(() => {
+      if (gsap.isTweening(slider)) return;
+      gsap.set(slider, { height: panelHeight(activeRef.current) });
+    });
+    for (const panel of track.children) observer.observe(panel.firstElementChild as Element);
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Default day: today if we're mid-camp, otherwise Monday. Runs client-side
-  // only — the pages are prerendered, so the server can't know "today".
-  useEffect(() => {
-    const index = schedule.findIndex((day) => day.date === todayIso());
-    if (index > 0) goTo(index, false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const onScroll = () => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-    syncHeight();
-    const index = Math.round(slider.scrollLeft / slider.clientWidth);
-    if (index !== active) setActive(index);
-  };
 
   return (
     <section className={styles.schedule}>
@@ -125,19 +130,23 @@ export default function ScheduleSection({
         ))}
       </div>
 
-      <div className={styles.slider} ref={sliderRef} onScroll={onScroll}>
-        {schedule.map((day, index) => (
-          <div className={styles.panel} key={day.date}>
-            <div className={styles.panelInner}>
-              <ScheduleDay
-                day={day}
-                locations={locations}
-                isActive={index === active}
-                onSelect={(event) => setSelected({ event, date: day.date })}
-              />
+      <div className={styles.slider} ref={sliderRef}>
+        <div className={styles.track} ref={trackRef}>
+          {schedule.map((day, index) => (
+            // inert keeps offscreen days out of tab order; focusing them would
+            // otherwise scroll the overflow-hidden slider and break the layout.
+            <div className={styles.panel} key={day.date} inert={index !== active}>
+              <div className={styles.panelInner}>
+                <ScheduleDay
+                  day={day}
+                  locations={locations}
+                  isActive={index === active}
+                  onSelect={(event) => setSelected({ event, date: day.date })}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <EventModal

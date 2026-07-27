@@ -44,29 +44,22 @@
   }
 }
 
-// One panel per day; native horizontal swipe with snap. Height is set inline
-// from the swipe position (see ScheduleSection.tsx) so short days don't leave
-// dead space below and taller days aren't clipped mid-swipe.
+// One panel per day. Not scrollable — the track is moved with a GSAP
+// transform when a tab is tapped, and the slider height animates to the
+// incoming panel in the same tween (see ScheduleSection.tsx).
 .slider {
+  overflow: hidden;
+}
+
+.track {
   display: flex;
   align-items: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .panel {
   flex: 0 0 100%;
   min-width: 0;
   padding: 0 18px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 // Measured by the height sync — must wrap the panel's real content height.
