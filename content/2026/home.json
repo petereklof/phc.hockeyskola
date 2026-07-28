@@ -10,6 +10,77 @@
   "saveAsApp": {
     "intro": "Lägg till sajten på hemskärmen för snabb åtkomst under veckan."
   },
+  "faq": {
+    "heading": "Vanliga frågor",
+    "items": [
+      {
+        "question": "Kost & återhämtning",
+        "intro": "För att hockeyskolan ska bli en så bra upplevelse som möjligt är det viktigt att ta hand om kroppen även utanför isen.",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Ät ordentliga måltider, fyll gärna på med mellanmål mellan aktiviteterna och drick vatten regelbundet under hela dagen. En märkt vattenflaska är ett måste och vanligt vatten räcker utmärkt – energidrycker lämnas hemma."
+          },
+          {
+            "type": "paragraph",
+            "text": "Prioritera också en god natts sömn så att kroppen hinner återhämta sig och är redo för nästa dags aktiviteter."
+          }
+        ]
+      },
+      {
+        "question": "Packlista",
+        "intro": "En enkel packlista med det viktigaste att komma ihåg. Den är inte komplett, men hjälper dig att inte missa sådant som ofta glöms bort.",
+        "body": [
+          {
+            "type": "list",
+            "items": [
+              "Hjälm märkt med spelarens namn",
+              "Hockeyutrustning",
+              "Klubba (gärna en extra)",
+              "Slipade skridskor",
+              "Märkt vattenflaska",
+              "Hockeytejp",
+              "Underställ och ombyten",
+              "Träningskläder och träningsskor",
+              "Handduk",
+              "Schampo och tvål"
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Parkering & entréer",
+        "intro": "På grund av byggnation av en ny ishall och nya parkeringsytor är parkeringen närmast LF Arena avstängd under hockeyskolan.",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Besökare hänvisas till den stora parkeringen nedanför grindarna. Infart sker via den provisoriska infarten från Hembygdsvägen eller Kolmilavägen."
+          },
+          {
+            "type": "list",
+            "items": [
+              "Grupp B, C och D: Ingång via dörren på ishallens kortsida (mot PHC kansli).",
+              "Grupp A (födda 2012–2013): Ombyte i fotbollens omklädningsrum 5, Röda längan."
+            ]
+          }
+        ]
+      },
+      {
+        "question": "Skridskoslipning",
+        "intro": "Behöver du slipa skridskorna under hockeyskolan finns möjlighet att lämna in dem för slipning efter kl. 14.30 varje dag.",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Slipkort finns att köpa för 60 kr per slipning."
+          },
+          {
+            "type": "paragraph",
+            "text": "Skriv spelarens namn på en lapp och lägg den i skridskorna innan de lämnas in vid entrén till A-lagets omklädningsrum, intill ismaskinen."
+          }
+        ]
+      }
+    ]
+  },
   "notices": {
     "testIce": {
       "text": "Vi hoppas kunna ge möjlighet att \"testa isen\" inför hockeyskolan. Blir det av så kommer det info om dag och tid.",

@@ -114,10 +114,24 @@ const GroupSchema = z
     message: "ageGroup does not match GROUP_AGE_MAP for this group id",
   });
 
+// FAQ modal body: heading (question) + short ingress + free-form blocks.
+// Paragraphs and bullet lists are the only block types the design needs.
+const FaqBlockSchema = z.discriminatedUnion("type", [
+  z.strictObject({ type: z.literal("paragraph"), text: z.string() }),
+  z.strictObject({ type: z.literal("list"), items: z.array(z.string()).min(1) }),
+]);
+
+const FaqItemSchema = z.strictObject({
+  question: z.string(),
+  intro: z.string(),
+  body: z.array(FaqBlockSchema).min(1),
+});
+
 const HomeSchema = z.strictObject({
   hero: z.strictObject({ titleLine1: z.string(), titleLine2: z.string() }),
   marquee: z.strictObject({ facts: z.array(z.string()).min(1), tagline: z.string() }),
   saveAsApp: z.strictObject({ intro: z.string() }),
+  faq: z.strictObject({ heading: z.string(), items: z.array(FaqItemSchema).min(1) }),
   notices: z.strictObject({
     testIce: z.strictObject({ text: z.string(), tba: z.boolean() }),
     goalieTraining: z.strictObject({ text: z.string() }),
@@ -140,6 +154,7 @@ export type Location = z.infer<typeof LocationSchema>;
 export type SharedContact = z.infer<typeof SharedContactSchema>;
 export type ContactRefKey = (typeof CONTACT_REFS)[number];
 export type Menu = z.infer<typeof MenuSchema>;
+export type FaqItem = z.infer<typeof FaqItemSchema>;
 export type ModalContent = z.infer<typeof ModalContentSchema>;
 export type ScheduleEvent = z.infer<typeof EventSchema>;
 export type DaySchedule = z.infer<typeof DayScheduleSchema>;

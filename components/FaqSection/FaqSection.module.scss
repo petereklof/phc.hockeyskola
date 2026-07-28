@@ -1,0 +1,116 @@
+@use "sass:color";
+@use "tokens" as *;
+
+.faq {
+  // 32px bottom: SponsorSlot below has no top margin of its own.
+  padding: 20px 18px 32px;
+}
+
+.heading {
+  @include heading;
+  margin: 0 0 16px;
+  padding: 0 4px;
+  font-size: 22px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Same row language as the schedule (ScheduleDay): box fill, left-aligned
+// text, red chevron — so tappable rows read the same everywhere.
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 14px;
+  text-align: left;
+  border: 0;
+  border-radius: 12px;
+  background: $color-box;
+  color: $color-text;
+  font-family: $font-body;
+  cursor: pointer;
+  transition: background 0.25s ease;
+
+  // 6% lands almost exactly on $color-bg (#211e1e) — the row would melt into
+  // the page on hover. 12% is clearly lighter than both box and page bg.
+  &:hover {
+    background: color.mix($color-text, $color-box, 12%);
+  }
+}
+
+.question {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chevron {
+  margin-left: auto;
+  color: $color-red;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+// --- Modal body -------------------------------------------------------------
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: $color-muted;
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: $color-muted; // bullets are body text — same gray as .paragraph
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.55em;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      background: $color-red;
+      border-radius: 2px;
+    }
+  }
+}
+
+@include reduced-motion {
+  .row {
+    transition: none;
+  }
+}

@@ -1,3 +1,4 @@
+import FaqSection from "@/components/FaqSection/FaqSection";
 import GroupGrid from "@/components/GroupGrid/GroupGrid";
 import type { GroupCardData } from "@/components/GroupCard/GroupCard";
 import Hero from "@/components/Hero/Hero";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Marquee facts={home.marquee.facts} tagline={home.marquee.tagline} />
       <GroupGrid groups={groupCards} />
       <SaveAsApp intro={home.saveAsApp.intro} />
+      <FaqSection heading={home.faq.heading} items={home.faq.items} />
       <SponsorSlot />
       <SiteFooter />
     </main>

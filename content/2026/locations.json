@@ -3,10 +3,6 @@
     "name": "LF Arena",
     "address": "LF Arena, Piteå",
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=LF+arena%2C+Hembygdsv%C3%A4gen+5%2C+941+33+Pite%C3%A5%2C+Sweden",
-    "infoLink": {
-      "label": "Info om parkering",
-      "url": "https://www.laget.se/thhs/News/8126552/PHC-Sommarhockeyskola-2026-Bilparkering-vid-LF-Arena"
-    },
     "tba": true
   },
   "grisberget": {
@@ -25,30 +21,18 @@
     "name": "VIP-rummet i LF Arena",
     "address": "LF Arena, Piteå",
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=LF+arena%2C+Hembygdsv%C3%A4gen+5%2C+941+33+Pite%C3%A5%2C+Sweden",
-    "infoLink": {
-      "label": "Info om parkering",
-      "url": "https://www.laget.se/thhs/News/8126552/PHC-Sommarhockeyskola-2026-Bilparkering-vid-LF-Arena"
-    },
     "tba": true
   },
   "fys-samling": {
     "name": "LF Arena / Grisberget",
     "address": "LF Arena / Grisberget",
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=LF+arena%2C+Hembygdsv%C3%A4gen+5%2C+941+33+Pite%C3%A5%2C+Sweden",
-    "infoLink": {
-      "label": "Info om parkering",
-      "url": "https://www.laget.se/thhs/News/8126552/PHC-Sommarhockeyskola-2026-Bilparkering-vid-LF-Arena"
-    },
     "tba": true
   },
   "torontokiosken": {
     "name": "Torontokiosken",
     "address": "LF Arena, Piteå",
     "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=LF+arena%2C+Hembygdsv%C3%A4gen+5%2C+941+33+Pite%C3%A5%2C+Sweden",
-    "infoLink": {
-      "label": "Info om parkering",
-      "url": "https://www.laget.se/thhs/News/8126552/PHC-Sommarhockeyskola-2026-Bilparkering-vid-LF-Arena"
-    },
     "tba": true
   }
 }
