@@ -78,6 +78,20 @@
             "text": "Skriv spelarens namn på en lapp och lägg den i skridskorna innan de lämnas in vid entrén till A-lagets omklädningsrum, intill ismaskinen."
           }
         ]
+      },
+      {
+        "question": "Testa isen inför",
+        "intro": "På söndag 2 augusti kl. 18.00–19.00 finns möjlighet för deltagare i PHC Sommarhockeyskola att testa isen inför hockeyskolan.",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Åkningen sker i friåkningsform och är endast öppen för hockeyskolans deltagare. Utrustning: Hjälm är ett minimikrav."
+          },
+          {
+            "type": "paragraph",
+            "text": "Tyvärr finns det inte möjlighet att lämna kvar utrustning i omklädningsrummen från söndag till måndag."
+          }
+        ]
       }
     ]
   },

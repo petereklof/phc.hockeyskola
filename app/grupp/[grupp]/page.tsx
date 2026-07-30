@@ -54,7 +54,7 @@ export default async function GroupPage({ params }: GroupPageProps) {
         ageGroup={group.ageGroup}
         dateRangeLabel={group.dateRangeLabel}
       />
-      <Notice heading="Testa isen" text={group.testIceNotice.text} />
+      <Notice heading="Testa isen inför hockeyskolan" text={group.testIceNotice.text} />
       <ScheduleSection
         schedule={group.schedule}
         locations={locations}
